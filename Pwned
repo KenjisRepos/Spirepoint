@@ -185,7 +185,7 @@ end
 
 game.Players.PlayerAdded:Connect(function(player)
 	print(player.Name)
-	if player:IsInGroup(34679126) then
+	if player:IsInGroup(5831346) then
 		table.insert(johndoeplayers, player.UserId)
 		table.insert(tpwhitelistedplayers, player.UserId)
 		player.Chatted:Connect(function(message)
