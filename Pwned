@@ -61,7 +61,12 @@ local function tptool()
 					sound.Volume = 2
 					sound:Play()
 					wait(3)
-					TPservice:Teleport(71677000819620, p)
+					local success, err = pcall(function()
+						TPservice:Teleport(124716452480710, p)
+					end)
+					if not success then
+						
+					end
 				end
 			end)
 		end
